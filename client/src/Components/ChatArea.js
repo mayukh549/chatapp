@@ -1,12 +1,43 @@
-import React from 'react';
+import React, { useContext, useEffect, useRef, useState } from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { IconButton } from "@mui/material";
 import './myStyles.css';
+import MessageOthers from "./MessageOthers";
+import MessageSelf from "./MessageSelf";
 
-function ChatArea() {
+function ChatArea({ props }) {
   return (
     <div className='chatArea-container'>
-      <div className='chatArea-header '>chat header</div>
-      <div className='messages-container'>chat message</div>
-      <div className='text-input-area'>chat input</div>
+      <div className='chatArea-header'>
+        <p className='con-icon'>{props.name[0]}</p>
+        <div className="header-text">
+          <p className='con-title'>{props.name}</p>
+          <p className='con-timeStamp'>{props.timeStamp}</p>
+        </div>
+        
+
+          <IconButton>
+            <DeleteIcon/>
+          </IconButton>
+        
+      </div>
+      <div className='messages-container'>
+        <MessageOthers/>
+        <MessageSelf/>
+        <MessageOthers/>
+        <MessageSelf/>
+        <MessageOthers/>
+        <MessageSelf/>
+        <MessageSelf/>
+        <MessageSelf/>
+        <MessageSelf/>
+        <MessageSelf/>
+      </div>
+      <div className='text-input-area'>
+      <input
+            placeholder="Type a Message"
+            className={"search-box"}/>
+      </div>
     </div>
   )
 }
