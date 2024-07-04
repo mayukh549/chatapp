@@ -4,6 +4,7 @@ import './myStyles.css';
 import ChatArea from './ChatArea';
 import Sidebar from './Sidebar';
 import Welcome from "./Welcome";
+import CreateGroups from "./CreateGroups";
 
 
 
@@ -29,7 +30,8 @@ function MainContainer() {
             return <ChatArea props={conversation}/>
 
         })} */}
-        <Welcome/>
+        {/* <Welcome/> */}
+        <CreateGroups/>
     </div>
   )
 }
