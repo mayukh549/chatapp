@@ -5,7 +5,23 @@ import './myStyles.css';
 import MessageOthers from "./MessageOthers";
 import MessageSelf from "./MessageSelf";
 
-function ChatArea({ props }) {
+function ChatArea() {
+  const [conversations,setconversations]=useState([
+    {
+        name : "TEST1",
+        lastMessage : "last",
+        timeStamp:"today",
+
+
+    },
+
+
+
+
+
+]);
+var props = conversations[0];
+
   return (
     <div className='chatArea-container'>
       <div className='chatArea-header'>

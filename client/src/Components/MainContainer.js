@@ -5,33 +5,24 @@ import ChatArea from './ChatArea';
 import Sidebar from './Sidebar';
 import Welcome from "./Welcome";
 import CreateGroups from "./CreateGroups";
+import User from "./User";
+import { Outlet } from "react-router-dom";
 
 
 
 function MainContainer() {
-  const [conversations,setconversations]=useState([
-    {
-        name : "TEST1",
-        lastMessage : "last",
-        timeStamp:"today",
 
-
-    },
-
-
-
-
-
-]);
   return (
     <div className='main-container'>
         <Sidebar/>
+        <Outlet />
         {/* {conversations.map((conversation)=>{
             return <ChatArea props={conversation}/>
 
         })} */}
         {/* <Welcome/> */}
-        <CreateGroups/>
+        {/* <CreateGroups/> */}
+        {/* <User/> */}
     </div>
   )
 }

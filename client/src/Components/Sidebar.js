@@ -10,27 +10,29 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import SearchIcon from "@mui/icons-material/Search";
 import ConversationsItem from './ConversationsItem';
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
-    const [conversations,setconversations]=useState([
+    const navigate = useNavigate();
+    const [conversations, setconversations] = useState([
         {
-            name : "TEST1",
-            lastMessage : "last",
-            timeStamp:"today",
+            name: "TEST1",
+            lastMessage: "last",
+            timeStamp: "today",
 
 
         },
         {
-            name : "TEST1",
-            lastMessage : "last",
-            timeStamp:"today",
+            name: "TEST1",
+            lastMessage: "last",
+            timeStamp: "today",
 
 
         },
         {
-            name : "TEST1",
-            lastMessage : "last",
-            timeStamp:"today",
+            name: "TEST1",
+            lastMessage: "last",
+            timeStamp: "today",
 
 
         },
@@ -40,58 +42,75 @@ function Sidebar() {
 
     ]);
     return (
-    <div className='side-bar'>
-        <div className='sb-header'>
-            <div>
-                <IconButton>
-                    <AccountCircleIcon/>
+        <div className='side-bar'>
+            <div className='sb-header dark' >
+                <div>
+                    <IconButton
+                        onClick={() => {
+                            navigate("welcome");
+                        }}
+                    >
+                        <AccountCircleIcon />
 
-                </IconButton>
+                    </IconButton>
+                </div>
+                <div>
+                    <IconButton
+                        onClick={() => {
+                            navigate("groups");
+                        }}
+                    >
+                        <GroupAddIcon />
+
+                    </IconButton>
+                    <IconButton
+                        onClick={() => {
+                            navigate("user");
+                        }}
+                    >
+                        <PersonAddIcon />
+
+                    </IconButton>   
+
+                    <IconButton
+                        onClick={() => {
+                            navigate("create-groups");
+                        }}
+                    >
+                        <AddCircleIcon />
+
+                    </IconButton>
+                    <IconButton
+                        // onClick={() => {
+                        //     dispatch(toggleTheme());
+                        // }}
+                    >
+                        <NightlightIcon />
+
+                    </IconButton>
+                </div>
+
             </div>
-            <div>
-                <IconButton>
-                    <GroupAddIcon/>
+            <div className='sb-search'>
 
-                </IconButton>
                 <IconButton>
-                    <PersonAddIcon/>
-
+                    <SearchIcon />
                 </IconButton>
-                <IconButton>
-                    <AccountCircleIcon/>
+                <input
+                    placeholder="Search"
+                    className={"search-box"}
+                />
 
-                </IconButton>
-                <IconButton>
-                    <AddCircleIcon/>
-
-                </IconButton>
-                <IconButton>
-                    <NightlightIcon/>
-
-                </IconButton>
             </div>
+            <div className='sb-conversations'>
+                {conversations.map((conversation) => {
+                    return <ConversationsItem props={conversation} />
 
-        </div>
-        <div className='sb-search'>
-        
-            <IconButton>
-                <SearchIcon/>
-            </IconButton>
-            <input
-                placeholder="Search"
-                className={"search-box" }
-            />
+                })}
 
+            </div>
         </div>
-        <div className='sb-conversations'>
-        {conversations.map((conversation)=>{
-            return <ConversationsItem props={conversation}/>
-
-        })}
-           
-        </div>
-    </div>
-  )
+    )
 }
 
 export default Sidebar
