@@ -304,6 +304,7 @@
 }
 .hyper {
   color: darkviolet;
+  padding-left: 5px;
   text-decoration: underline;
   cursor: pointer;
 }
