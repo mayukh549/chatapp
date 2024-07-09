@@ -3,6 +3,12 @@ const dotenv = require("dotenv");
 const app = express();
 const { default: mongoose } = require("mongoose");
 const userRouter = require("./Routes/userRoutes.js");
+const cors = require("cors");
+app.use(
+    cors({
+        origin: "*",
+    })
+);
 
 
 
