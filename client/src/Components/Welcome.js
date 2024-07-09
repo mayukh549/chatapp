@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from "D:\\projects\\livechatapp\\client\\src\\icons\\communication.png";
 
+
 function Welcome() {
   return (
     <div className='welcome-container'>
