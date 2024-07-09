@@ -1,28 +1,27 @@
-import React, { useContext, useEffect, useState } from "react";
-
-import './myStyles.css';
-import ChatArea from './ChatArea';
-import Sidebar from './Sidebar';
-import Welcome from "./Welcome";
-import CreateGroups from "./CreateGroups";
-import User from "./User";
+import React, { createContext, useState } from "react";
+import "./myStyles.css";
+import Sidebar from "./Sidebar";
 import { Outlet } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 
-
+export const myContext = createContext();
 function MainContainer() {
+  const [refresh, setRefresh] = useState(true);
 
   return (
     <div className='main-container'>
-        <Sidebar/>
+      <myContext.Provider value={{ refresh: refresh, setRefresh: setRefresh }}>
+        <Sidebar />
         <Outlet />
-        {/* {conversations.map((conversation)=>{
+      </myContext.Provider>
+      {/* {conversations.map((conversation)=>{
             return <ChatArea props={conversation}/>
 
         })} */}
-        {/* <Welcome/> */}
-        {/* <CreateGroups/> */}
-        {/* <User/> */}
+      {/* <Welcome/> */}
+      {/* <CreateGroups/> */}
+      {/* <User/> */}
     </div>
   )
 }
